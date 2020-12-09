@@ -1,0 +1,28 @@
+{
+  "data_dir": "./datasets/processed_data/mfcc_1/",
+  "save_model_to": "models/test_model/",
+  
+  "training_ratio": 0.9,
+  
+  "normalize_type": "avg_std_fband_split",
+  
+  "encoder_type": "fc_1",
+  "encoder_output": "linear",
+  
+  "is_variational": false,
+  "beta": 5e-3,
+  
+  "latent_dim": 20,
+  
+  "decoder_type": "fc_2",
+  "decoder_output": "linear",
+  
+  "use_custom_loss": true,
+  "loss_type": "mse",
+  "learning_rate": 1e-4,
+  "decay": 0,
+  
+  "batch_size": 64,
+  "n_epochs": 10
+
+}

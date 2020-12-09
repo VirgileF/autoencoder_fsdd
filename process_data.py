@@ -25,7 +25,7 @@ if __name__ == '__main__':
     # Check source directory.
     if not os.path.exists(source_dir):
         raise utils.UserError(
-            f"Parameter path_to_recordings={source_dir} not allowed. The path does not exists.")
+            f"Parameter source_dir={source_dir} not allowed. The path does not exists.")
 
     # Check target directory and confirm overwriting if exists.
     if os.path.exists(target_dir):

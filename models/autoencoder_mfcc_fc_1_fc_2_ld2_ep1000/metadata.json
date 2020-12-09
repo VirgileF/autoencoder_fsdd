@@ -1,0 +1,89 @@
+{
+    "loading_params": {
+        "normalize_waves": true,
+        "path_to_recordings": "./resources/recordings/",
+        "sample_rate": 8000,
+        "stop_time": 1,
+        "target_dir": "./datasets/source_data/fsdd_1/"
+    },
+    "preprocessing_params": {
+        "feature": "mfcc",
+        "input_shape": [
+            20,
+            201
+        ],
+        "mel_params": {
+            "amin": 1e-10,
+            "hop_length": 40,
+            "mel_in_db": true,
+            "n_fft": 128,
+            "n_mels": 64,
+            "sigma_noise": 0.01,
+            "top_db": null,
+            "win_length": 120,
+            "window": "hann"
+        },
+        "mfcc_params": {
+            "hop_length": 40,
+            "n_fft": 128,
+            "n_mels": 64,
+            "n_mfcc": 20,
+            "sigma_noise": 0,
+            "win_length": 120,
+            "window": "hann"
+        },
+        "source_dir": "./datasets/source_data/fsdd_1/",
+        "stft_params": {
+            "hop_length": 40,
+            "n_fft": 128,
+            "win_length": 120,
+            "window": "hann"
+        },
+        "target_dir": "./datasets/processed_data/mfcc_1/"
+    },
+    "training_history": {
+        "loss": [
+            3.3924508094787598,
+            3.1153602600097656,
+            2.925835132598877,
+            2.7831058502197266,
+            2.6633903980255127,
+            2.560295581817627,
+            2.4811599254608154,
+            2.4064817428588867,
+            2.3544955253601074,
+            2.3120338916778564
+        ],
+        "val_loss": [
+            0.9927390813827515,
+            0.9842482209205627,
+            0.9778954982757568,
+            0.9757937788963318,
+            0.9827212691307068,
+            0.9988821148872375,
+            1.017868995666504,
+            1.0356240272521973,
+            1.1507853269577026,
+            1.168231725692749
+        ]
+    },
+    "training_params": {
+        "batch_size": 64,
+        "beta": 0.005,
+        "data_dir": "./datasets/processed_data/mfcc_1/",
+        "decay": 0,
+        "decoder_output": "linear",
+        "decoder_type": "fc_2",
+        "encoder_output": "linear",
+        "encoder_type": "fc_1",
+        "is_variational": false,
+        "latent_dim": 2,
+        "learning_rate": 0.0001,
+        "loss_type": "mse",
+        "n_epochs": 1000,
+        "normalize_type": "avg_std_fband_split",
+        "save_model_to": "models/autoencoder_mfcc_fc_1_fc_2_ld2_ep1000/",
+        "training_ratio": 0.9,
+        "use_custom_loss": true
+    }
+}
