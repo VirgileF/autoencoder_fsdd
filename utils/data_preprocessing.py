@@ -1,11 +1,7 @@
 import librosa
-import os
-import time as T
 import numpy as np
 
-import utils
-
-def wav2stft(X_wav, sr, stop_time, librosa_params, google_colab=True):
+def wav2stft(X_wav, sr, stop_time, librosa_params):
 
     """
     Function that transforms 2d-array containing the mono waves (X_wav) into a 
@@ -43,9 +39,6 @@ def wav2stft(X_wav, sr, stop_time, librosa_params, google_colab=True):
             - a window function, such as `scipy.signal.hanning`
             - a vector or array of length `n_fft`.
     
-        - google_colab : boolean
-            Specifies if the environment is running on Google Colab
-            or not.
 
     Returns
     -------
@@ -92,7 +85,7 @@ def wav2stft(X_wav, sr, stop_time, librosa_params, google_colab=True):
 
     return X_stft
 
-def stft2wav(X_stft, librosa_params, google_colab=True):
+def stft2wav(X_stft, librosa_params):
 
     """
     Function that transforms 4d-array containing the modules and phases of each 
@@ -122,10 +115,6 @@ def stft2wav(X_stft, librosa_params, google_colab=True):
               see `scipy.signal.get_window`
             - a window function, such as `scipy.signal.hanning`
             - a vector or array of length `n_fft`.
-    
-        - google_colab : boolean
-            Specifies if the environment is running on Google Colab
-            or not.
 
     Returns
     -------
@@ -169,7 +158,7 @@ def stft2wav(X_stft, librosa_params, google_colab=True):
 
 """# Waves to mel spectrograms"""
 
-def wav2mel(X_wav, sr, stop_time, librosa_params, google_colab=True):
+def wav2mel(X_wav, sr, stop_time, librosa_params):
 
     """
     Function that transforms 2d-array containing the mono waves (X_wav) into a 
@@ -224,9 +213,6 @@ def wav2mel(X_wav, sr, stop_time, librosa_params, google_colab=True):
         - amin : float > 0 [scalar]
             minimum threshold for `abs(S)` and `ref`
     
-    google_colab : boolean
-        Specifies if the environment is running on Google Colab or not.
-
     Returns
     -------
     X_mel : np.ndarray [shape=(n_recordings, n_mels, sr*stop_time//hop_length+1), dtype=dtype]
@@ -277,7 +263,7 @@ def wav2mel(X_wav, sr, stop_time, librosa_params, google_colab=True):
 
     return X_mel
 
-def mel2wav(X_mel, sr, librosa_params, google_colab=True):
+def mel2wav(X_mel, sr, librosa_params):
 
     """
     Function that transforms 3d-array containing the mel-spectrogram 
@@ -318,11 +304,6 @@ def mel2wav(X_mel, sr, librosa_params, google_colab=True):
             If the mel-spectrogram is returned in dB or not. If not, it is returned
             as a power.
     
-    google_colab : boolean
-        Specifies if the environment is running on Google Colab
-        or not.
-
-
     Returns
     -------
     X_wav : np.ndarray [shape=(n_recordings, sr*stop_time), dtype=dtype]
@@ -372,7 +353,7 @@ def mel2wav(X_mel, sr, librosa_params, google_colab=True):
 
 """# Waves to MFCC"""
 
-def wav2mfcc(X_wav, sr, stop_time, librosa_params, google_colab=True):
+def wav2mfcc(X_wav, sr, stop_time, librosa_params):
 
     """
     Function that transforms 2d-array containing the mono waves (X_wav) into a 
@@ -419,9 +400,6 @@ def wav2mfcc(X_wav, sr, stop_time, librosa_params, google_colab=True):
         - n_mfcc : int > 0 [scalar]
             Number of cepstral coefficient computed in the MFCC matrix.
     
-    google_colab : boolean
-        Specifies if the environment is running on Google Colab or not.
-
     Returns
     -------
     X_mfcc : np.ndarray [shape=(n_recordings, n_mfcc, sr*stop_time//hop_length+1), dtype=dtype]
@@ -468,7 +446,7 @@ def wav2mfcc(X_wav, sr, stop_time, librosa_params, google_colab=True):
 
     return X_mfcc
 
-def mfcc2wav(X_mfcc, sr, librosa_params, google_colab=True):
+def mfcc2wav(X_mfcc, sr, librosa_params):
 
     """
     Function that transforms 3d-array containing the MFCC
@@ -505,11 +483,6 @@ def mfcc2wav(X_mfcc, sr, librosa_params, google_colab=True):
         - n_mels : int > 0 [scalar]
             Number of mel-filterbanks.
     
-    google_colab : boolean
-        Specifies if the environment is running on Google Colab
-        or not.
-
-  
     Returns
     -------
     X_wav : np.ndarray [shape=(n_recordings, sr*stop_time), dtype=dtype]
@@ -530,9 +503,6 @@ def mfcc2wav(X_mfcc, sr, librosa_params, google_colab=True):
 
     wav_shape = hop_length*(X_mfcc.shape[2]-1)
     X_wav = np.zeros((X_mfcc.shape[0], wav_shape))
-
-    if google_colab:
-        display_output = display(IPython.display.Pretty('Starting'), display_id=True)
 
     for i in range(X_mfcc.shape[0]):
       
