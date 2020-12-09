@@ -1,0 +1,43 @@
+{
+    "loading_params": {
+        "normalize_waves": true,
+        "path_to_recordings": "./resources/recordings/",
+        "sample_rate": 8000,
+        "stop_time": 1,
+        "target_dir": "./datasets/source_data/fsdd_1/"
+    },
+    "preprocessing_params": {
+        "feature": "wav",
+        "input_shape": [
+            8000
+        ],
+        "mel_params": {
+            "amin": 1e-10,
+            "hop_length": 40,
+            "mel_in_db": true,
+            "n_fft": 128,
+            "n_mels": 64,
+            "sigma_noise": 0.01,
+            "top_db": null,
+            "win_length": 120,
+            "window": "hann"
+        },
+        "mfcc_params": {
+            "hop_length": 40,
+            "n_fft": 128,
+            "n_mels": 64,
+            "n_mfcc": 20,
+            "sigma_noise": 0,
+            "win_length": 120,
+            "window": "hann"
+        },
+        "source_dir": "./datasets/source_data/fsdd_1/",
+        "stft_params": {
+            "hop_length": 40,
+            "n_fft": 128,
+            "win_length": 120,
+            "window": "hann"
+        },
+        "target_dir": "./datasets/processed_data/wav_1/"
+    }
+}

@@ -1,0 +1,42 @@
+{
+  "source_dir": "./datasets/source_data/fsdd_1/",
+  "target_dir": "./datasets/processed_data/wav_1/",
+
+  "feature": "wav",
+
+  "stft_params": {
+
+    "n_fft": 128,
+    "win_length": 120,
+    "hop_length": 40,
+    "window": "hann"
+
+  },
+
+  "mel_params": {
+
+    "sigma_noise": 1e-2,
+    "n_fft": 128,
+    "win_length": 120,
+    "hop_length": 40,
+    "window": "hann",
+    "n_mels": 64,
+    "mel_in_db": true,
+    "top_db": null,
+    "amin": 1e-10
+
+  },
+
+  "mfcc_params": {
+
+    "sigma_noise": 0,
+    "n_fft": 128,
+    "win_length": 120,
+    "hop_length": 40,
+    "window": "hann",
+    "n_mels": 64,
+    "n_mfcc": 20
+
+  }
+
+}

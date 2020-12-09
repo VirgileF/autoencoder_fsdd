@@ -100,7 +100,7 @@ speakers_mapping.to_series().to_csv(os.path.join(target_dir, 'speakers_mapping.c
 metadata = {}
 metadata['loading_params'] = LOADING_PARAMS
 with open(os.path.join(target_dir, 'metadata.json'), 'w') as fp:
-    json.dump(metadata, fp)
+    json.dump(metadata, fp, sort_keys=True, indent=4)
 
 # Verbosity
 print(f"Data stored in {LOADING_PARAMS['target_dir']}.")

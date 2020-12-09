@@ -1,1 +1,9 @@
-{"loading_params": {"path_to_recordings": "./resources/recordings/", "target_dir": "./datasets/source_data/fsdd_1/", "sample_rate": 8000, "stop_time": 1, "normalize_waves": true}}
+{
+    "loading_params": {
+        "normalize_waves": true,
+        "path_to_recordings": "./resources/recordings/",
+        "sample_rate": 8000,
+        "stop_time": 1,
+        "target_dir": "./datasets/source_data/fsdd_1/"
+    }
+}
